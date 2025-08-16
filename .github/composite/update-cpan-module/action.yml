@@ -92,7 +92,7 @@ runs:
       shell: bash
       run: |
         mv local local.system
-        rm cpanfile.snapshot
+        [[ ! -e "${{ inputs.cpanfile }}.snapshot" ]] || rm "${{ inputs.cpanfile }}.snapshot"
 
         cpm install -L=local --show-build-log-on-failure
         carton install
