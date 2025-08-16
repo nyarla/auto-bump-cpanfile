@@ -1,8 +1,8 @@
 ## Auto bump cpanfile
 
-> The example repository for auto bump `cpanfile` and `cpanfile.snapshot`
+> The example repository for auto bump to `cpanfile` and `cpanfile.snapshot`
 
-### The contains files
+### The contain files
 
 ```
 .github/workflows/
@@ -11,7 +11,7 @@
   workflows/
     bump-cpanfile-manually.yml - Updating CPAN module manually.
     bump-cpanfile-schedule.yml - Updating CPAN module by scheduled cron.
-    chatopt-cpanfile.yml - The file for ChatOps on pull request issue comments.
+    chatops-cpanfile.yml - The file for ChatOps on pull request issue comments.
 ```
 
 #### `composite/update-cpan-module/action.yml`
@@ -23,12 +23,13 @@ The `inputs` arguments as follows:
 - `perl-version` - the runtime version of perl
 - `module` - the module name to updating target
 - `cpanfile` - the path to `cpanfile`
-- `bnrach-prefix` - the branch name prefix of bump pull request
+- `branch-prefix` - the branch name prefix of bump pull request
 - `commit-message` - the template string for commit message
 - `pull-request-title` - the template string for pull request title
 - `pull-request-body` - the template string for pull request comment body
 
-The `commit-message`, `pull-request-title` and `pull-request-body` can be use `@{varname}@` template variables, it supports to these variables:
+The `commit-message`, `pull-request-title` and `pull-request-body` can be use `@varname@` template variables,
+it supports to as follows:
 
 - `@module@` - The CPAN module name
 - `@version@` - The CPAN mdoule version
@@ -52,18 +53,18 @@ The arguments of this action as follows:
 - `env.perl-version` - the runtime version of perl
 - `env.cpanfile` - the path to `cpanfile`
 
-#### `workflows/chatopt-cpanfile.yml`
+#### `workflows/chatops-cpanfile.yml`
 
 This file is for the chatops by issue comment on the bump pull request.
 
-The `env` arguments as follows:
+The arguments as follows:
 
-- `perl-version` - the runtime version of perl
-- `commit-message-prefix` - the prefix string for grep bump commit log from pull request
-- `commit-message-regexp` - the regexp fort extracing the CPAN module name
+- `env.perl-version` - the runtime version of perl
+- `env,commit-message-prefix` - the prefix string for grep bump commit from pull request
+- `env.commit-message-regexp` - the regexp for extracing the CPAN module name
 
 The format of `commit-message-regexp` is `s///` code on perl,
-please looking to this file about how this variable is used.
+please looking to this file, about how to used that setting.
 
 The chatops command as follows:
 
