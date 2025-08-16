@@ -72,6 +72,22 @@ The chatops command as follows:
   - recreate the pull request
   - this command useful for fix conflict `cpanfile.snapshot`
 
+### Important notes
+
+These actions in the this repository uses [@peter-evans/create-pull-request](https://github.com/peter-evans/create-pull-request).
+
+This actions requires `Allow GitHub Actions to create and approve pull requests` permissions,
+but it turned off by default.
+
+You can access to this settings by these steps, and check to this option:
+
+1. Open repository `Settings`
+2. Expands `Actions` menu, and access to `General` page
+3. Scroll down to `Workflow permissions`
+4. Find `Allow GitHub Actions to create and approve pull requests`, check it and `Save`
+
+If you want to more details, please looking at [@peter-evans/create-pull-request](https://github.com/peter-evans/create-pull-request) documentation.
+
 ### Author
 
 OKAMURA Naoki aka nyarla / kalaclista <nyarla@kalaclista.com>
