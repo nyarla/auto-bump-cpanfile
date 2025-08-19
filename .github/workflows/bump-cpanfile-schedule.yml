@@ -36,6 +36,9 @@ jobs:
           } >> $GITHUB_OUTPUT 
 
   make-pull-request:
+    if: >-
+      needs.matrix.outputs.modules != ''
+      && needs.matrix.outputs.modules != '[]'
     name: Make matrix pull requests
     runs-on: ubuntu-latest
     needs:
