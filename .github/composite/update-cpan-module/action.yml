@@ -35,7 +35,7 @@ inputs:
 
   pull-request-body:
     description: the template to make pull request content body.
-    tyep: string
+    type: string
     default: |
       ## CPAN module update
 
