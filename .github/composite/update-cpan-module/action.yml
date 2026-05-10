@@ -35,7 +35,6 @@ inputs:
 
   pull-request-body:
     description: the template to make pull request content body.
-    type: string
     default: |
       ## CPAN module update
 
@@ -48,7 +47,7 @@ runs:
   using: composite
   steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-    - uses: shogo82148/actions-setup-perl@5796a908661aa68fc0a5b8f55c6791af2376d72e # v1.35.0
+    - uses: shogo82148/actions-setup-perl@a198315ec4e9244f206879ea7b63078003aec8a6 # v1.41.1
       with:
         perl-version: ${{ inputs.perl-version }}
         enable-modules-cache: true
